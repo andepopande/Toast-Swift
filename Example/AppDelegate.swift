@@ -27,8 +27,12 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+#if os(visionOS)
+    var window: UIWindow? = UIWindow()
+#else
     var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+#endif
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let viewController = ViewController(style: .plain)
